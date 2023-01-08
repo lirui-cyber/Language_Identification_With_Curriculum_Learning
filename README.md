@@ -100,11 +100,11 @@ python3 train_xsa_curriculum_learning.py
 ```
 ## Test pipeline
 You can use our trained models to quickly reproduce results. The trained model link is as follows:<br>
-https://drive.google.com/file/d/1MdxDNQJ2up2bA6RwV-o13Ti02FK_0U4M/view?usp=share_link <br>
-You can change "check_point" variable in xsa_config.json file, Change to the epoch you want to use.
+https://drive.google.com/file/d/18q7_aT322HePQMjLLmXVCO18-hIA_oqU/view?usp=share_link  <br>
+You can change "check_point" variable in curriculum_config.json file, Change to the epoch you want to use.
 ```
-python3 test.py
+python3 test_xsa_curriculum_learning.py
 ```
 
 ## Notice
-All the required parameters in the script are written in the xsa_config.json file.
+All the required parameters in the script are written in the curriculum_config.json file.
