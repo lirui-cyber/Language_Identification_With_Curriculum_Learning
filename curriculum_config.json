@@ -1,0 +1,50 @@
+{
+  "model_name": "xvector_self_attention",
+  "exp": "exp-curriculum-learning",
+  "wav2vec_info":{
+    "model_path": "pretrained-model/xlsr_53_56k.pt",
+    "model_name": "pretrained_model",
+    "layer": 16,
+    "m_size": "large",
+    "_comment": "FOr language recognition, XLSR-53 is recommended as the feature extractor"
+  },
+  "Input": {
+    "userroot": "/home3/lirui/Language_Identification_With_Curriculum_Learning/",
+    "train_set": "data-16k/lre17_train_1.5_1.5_30_overlap_27.5s_include_dev_5th",
+    "valid_set": "none",
+    "_test_sets": "data-16k/lre17_eval_3s data-16k/lre17_eval_10s data-16k/lre17_eval_30s  data-16k/lre17_eval_3s_5_snrs data-16k/lre17_eval_3s_10_snrs data-16k/lre17_eval_3s_15_snrs data-16k/lre17_eval_3s_20_snrs data-16k/lre17_eval_10s_5_snrs data-16k/lre17_eval_10s_10_snrs data-16k/lre17_eval_10s_15_snrs data-16k/lre17_eval_10s_20_snrs data-16k/lre17_eval_30s_5_snrs data-16k/lre17_eval_30s_10_snrs data-16k/lre17_eval_30s_15_snrs data-16k/lre17_eval_30s_20_snrs",
+    "test_sets": "data-16k/lre17_eval_3s data-16k/lre17_eval_10s data-16k/lre17_eval_30s",
+    "test_sets_all_AEH": "lre17_eval_3s lre17_eval_10s lre17_eval_30s lre17_eval_3s_20_snrs lre17_eval_3s_15_snrs lre17_eval_3s_10_snrs lre17_eval_3s_5_snrs lre17_eval_10s_20_snrs lre17_eval_10s_15_snrs lre17_eval_10s_10_snrs lre17_eval_10s_5_snrs lre17_eval_30s_20_snrs lre17_eval_30s_15_snrs lre17_eval_30s_10_snrs lre17_eval_30s_5_snrs",
+    "test_sets_10s": "lre17_eval_10s_20_snrs_rats_noise_channel_AEH_3 lre17_eval_10s_15_snrs_rats_noise_channel_AEH_3 lre17_eval_10s_10_snrs_rats_noise_channel_AEH_3 lre17_eval_10s_5_snrs_rats_noise_channel_AEH_3 lre17_eval_10s_20_snrs_rats_channels_A_noise_3 lre17_eval_10s_15_snrs_rats_channels_A_noise_3 lre17_eval_10s_10_snrs_rats_channels_A_noise_3 lre17_eval_10s_5_snrs_rats_channels_A_noise_3 lre17_eval_10s_20_snrs_rats_channels_E_noise_3 lre17_eval_10s_15_snrs_rats_channels_E_noise_3 lre17_eval_10s_10_snrs_rats_channels_E_noise_3 lre17_eval_10s_5_snrs_rats_channels_E_noise_3 lre17_eval_10s_20_snrs_rats_channels_H_noise_3 lre17_eval_10s_15_snrs_rats_channels_H_noise_3 lre17_eval_10s_10_snrs_rats_channels_H_noise_3 lre17_eval_10s_5_snrs_rats_channels_H_noise_3",
+    "test_sets_10s_BCDFG": "lre17_eval_10s_20_snrs_rats_channels_B_noise lre17_eval_10s_20_snrs_rats_channels_C_noise lre17_eval_10s_20_snrs_rats_channels_D_noise lre17_eval_10s_20_snrs_rats_channels_F_noise lre17_eval_10s_20_snrs_rats_channels_G_noise lre17_eval_10s_15_snrs_rats_channels_B_noise lre17_eval_10s_15_snrs_rats_channels_C_noise lre17_eval_10s_15_snrs_rats_channels_D_noise lre17_eval_10s_15_snrs_rats_channels_F_noise lre17_eval_10s_15_snrs_rats_channels_G_noise lre17_eval_10s_10_snrs_rats_channels_B_noise lre17_eval_10s_10_snrs_rats_channels_C_noise lre17_eval_10s_10_snrs_rats_channels_D_noise lre17_eval_10s_10_snrs_rats_channels_F_noise lre17_eval_10s_10_snrs_rats_channels_G_noise lre17_eval_10s_5_snrs_rats_channels_B_noise lre17_eval_10s_5_snrs_rats_channels_C_noise lre17_eval_10s_5_snrs_rats_channels_D_noise lre17_eval_10s_5_snrs_rats_channels_F_noise lre17_eval_10s_5_snrs_rats_channels_G_noise",
+    "log": "exp-curriculum-learning/log",
+    "_comment": "Input your data dir here, each line: data_file_path lable_index segment_len"
+  },
+  "model_config": {
+    "model": "xsa",
+    "feat_dim": 1024,
+    "reduc_dim": 256,
+    "d_k": 64,
+    "d_ff": 2048,
+    "n_heads": 8,
+    "n_language": 14,
+    "_comment": "Model configurations, do not change unless you need to modify the model"
+  },
+  "optim_config": {
+    "learning_rate": 0.0001,
+    "epochs": 35,
+    "batch": 256,
+    "optimizer": "Adam",
+    "scheduler": "warmup_cosine",
+    "num_work": 4,
+    "device": 0,
+    "DDP": "False",
+    "warmup_step": -1,
+    "valid_epochs": 3,
+    "seed": -1,
+    "_comment": "warmup_step = -1 denotes default value, num_work is better to be your_cpu_cores/4"
+  },
+  "kaldi": "/home/asrxiv/w2021/kaldi-cuda11/",
+  "check_point": "exp-curriculum-learning-35epochs/xsa_34.ckpt",
+  "train_check_point": "none"
+}
