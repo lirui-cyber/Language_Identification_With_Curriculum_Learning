@@ -58,7 +58,7 @@ generate raw audio and add noise
   bash prepare_data.sh --steps 1-2
 ```
 ## Training pipeline
-Before execution, please check the parameters in ```xsa_config``` <br>
+Before execution, please check the parameters in ```curriculum_config.json ``` <br>
 You need to change two parameters:<br>
 - **userroot**: Project root 
 - **model_path**: The path of pretrained-model xlsr_53_56k.pt. <br>
