@@ -96,7 +96,7 @@ python3 extract_features.py
 ```
 ### Training 
 ```
-python3 train_xsa.py
+python3 train_xsa_curriculum_learning.py
 ```
 ## Test pipeline
 You can use our trained models to quickly reproduce results. The trained model link is as follows:<br>
