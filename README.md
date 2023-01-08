@@ -26,10 +26,10 @@ source ~/.bashrc
 ## Download the project
 1. Clone the project from GitHub into your workspace
 ```
-git clone -b simple https://github.com/lirui-cyber/Language-Identification.git
+git clone https://github.com/lirui-cyber/Language_Identification_With_Curriculum_Learning.git
 ```
 2. Point to your kaldi <br>
-Open ```Language-Identification/path.sh``` file, change **KALDI_ROOT** to your kaldi directory,e.g.
+Open ```Language_Identification_With_Curriculum_Learning/path.sh``` file, change **KALDI_ROOT** to your kaldi directory,e.g.
 ```
 KALDI_ROOT=/home/asrxiv/w2021/kaldi-cuda11
 ```
